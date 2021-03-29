@@ -13,11 +13,11 @@ def gen_image_to_send(header: ismrmrd.xsd.ismrmrdHeader,
                       acqs: typing.List[ismrmrd.Acquisition]=None,
                       connection: gadgetron.external.Connection=None):
     # target picture size, should get get from header in the future
-    header.encoding
+    recon_matrix=header.encoding[0].reconSpace.matrixSize
     ic=1 # channel
     iz=1 # z size
-    iy=256 # height
-    ix=512 # width
+    iy=recon_matrix.y # height
+    ix=recon_matrix.x # width
     dpi=100 # data per inch
     figure=plt.gcf() # type: Figure
     figure.set_size_inches(ix/dpi,iy/dpi)
