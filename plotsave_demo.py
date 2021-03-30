@@ -38,7 +38,8 @@ def gen_image_to_send(header: ismrmrd.xsd.ismrmrdHeader,
     print(rf'--------------------plot end-----------------------')
 
     h=ismrmrd.ImageHeader()# type: ismrmrd.ImageHeader
-    h.data_type = ismrmrd.DATATYPE_USHORT
+    #h.data_type = ismrmrd.DATATYPE_USHORT
+    h.data_type = ismrmrd.DATATYPE_FLOAT
     h.image_type= ismrmrd.IMTYPE_MAGNITUDE
     h.channels=ic
     h.matrix_size=(ix,iy,iz)
