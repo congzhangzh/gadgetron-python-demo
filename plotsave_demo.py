@@ -48,6 +48,9 @@ def gen_image_to_send(header: ismrmrd.xsd.ismrmrdHeader,
 
     gray_scale_img=PILImage.open('result.png').convert('L') # gray scale image uint 8
     img_data=np.array(gray_scale_img)
+
+    #TODO how to stand this code?
+    #i.data[:] = img_data[:, ::-1].data[:]
     i.data[:]=img_data.data[:]
     return i
 
